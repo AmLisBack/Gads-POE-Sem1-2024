@@ -18,10 +18,11 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         HealthCheck();
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.position, 0.1f);
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.position, 0.05f);
     }
     private void HealthCheck()
     {
+
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
         if(other.CompareTag("Dart"))
         {
             enemyHealth -= 3.5;
+            Destroy(other.gameObject);
         }
     }
 }
