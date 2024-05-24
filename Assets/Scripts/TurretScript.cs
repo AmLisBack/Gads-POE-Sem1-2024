@@ -6,7 +6,7 @@ public class TurretScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject projectilePrefab;
-    public Vector3 firePoint;
+    public Transform firePoint;
     
     public float RPM = 10f;
 
@@ -18,11 +18,12 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        firePoint += transform.position;
+        
         animator = GetComponent<Animator>();
     }
     void Update()
     {
+        
         displayFireTimer = fireTimer;
         Debug.Log(target);
         if (target == null)
@@ -33,7 +34,7 @@ public class TurretScript : MonoBehaviour
         {
             AimAtTarget();
             fireTimer -= Time.deltaTime;
-            animator.Play("Entry");
+            animator.Play("Idle");
             if (fireTimer <= 0f)
             {
                 Shoot();
@@ -65,8 +66,8 @@ public class TurretScript : MonoBehaviour
     }
     private void AimAtTarget()
     {
-        //Debug.DrawLine(firePoint, target.position + new Vector3(0f, 5f, 0), Color.blue);
-        Vector3 direction = (target.position - firePoint).normalized;
+        Debug.DrawLine(firePoint.transform.position, target.position + new Vector3(0f, 5f, 0), Color.blue);
+        Vector3 direction = (target.position - firePoint.transform.position).normalized;
         direction.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         lookRotation *= Quaternion.Euler(0, 90, 0);
@@ -75,11 +76,11 @@ public class TurretScript : MonoBehaviour
     private void Shoot()
     {
         animator.Play("Fire");
-        GameObject projectile = Instantiate(projectilePrefab, firePoint, gameObject.transform.rotation);
-        Dart dart = projectile.GetComponent<Dart>();
-        if (dart != null)
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Net net = projectile.GetComponent<Net>();
+        if (net != null)
         {
-            dart.Seek(target);
+            net.Seek(target);
         }
 
 
