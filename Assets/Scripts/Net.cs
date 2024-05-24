@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Net : MonoBehaviour
 {
-    public float speed = 20f;
+    private float speed = 40f;
     private Transform target;
 
     public void Seek(Transform _target)
@@ -16,11 +16,14 @@ public class Net : MonoBehaviour
 
     void Update()
     {
+        if (target == null)
+            return;
 
         Vector3 dir = target.position + new Vector3(0f, 5f, 0f) - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
-
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        lookRotation *= Quaternion.Euler(0, 90, 0);
+        transform.rotation = lookRotation;
     }
 }

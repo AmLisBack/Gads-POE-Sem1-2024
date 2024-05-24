@@ -11,7 +11,7 @@ public class TurretScript : MonoBehaviour
     public float RPM = 10f;
 
     private Transform target;
-    private float fireTimer = 0f;
+    private float fireTimer = 10f;
     public float displayFireTimer;
     private Animator animator;
 
@@ -34,12 +34,13 @@ public class TurretScript : MonoBehaviour
         {
             AimAtTarget();
             fireTimer -= Time.deltaTime;
-            animator.Play("Idle");
             if (fireTimer <= 0f)
             {
+                animator.SetTrigger("PlayAnimation");
                 Shoot();
                 fireTimer = RPM;
             }
+            animator.SetTrigger("Idle");
 
         }
     }
@@ -66,17 +67,26 @@ public class TurretScript : MonoBehaviour
     }
     private void AimAtTarget()
     {
-        Debug.DrawLine(firePoint.transform.position, target.position + new Vector3(0f, 5f, 0), Color.blue);
+        //Rotation the turret towards the enemy it is locked in on
         Vector3 direction = (target.position - firePoint.transform.position).normalized;
         direction.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         lookRotation *= Quaternion.Euler(0, 90, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+        
+        //Moves the drawline to follow the rotation of the object
+        Vector3 lineStartOffset = new Vector3(-2.5f, 5f, 0f);
+        Vector3 startPosition = transform.position + transform.rotation * lineStartOffset;
+        Vector3 endPosition = target.position + new Vector3(0f, 5f, 0f);
+        //Comment out the drawline if we dont want it 
+        Debug.DrawLine(startPosition, endPosition, Color.blue);
     }
     private void Shoot()
     {
-        animator.Play("Fire");
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Vector3 lineStartOffset = new Vector3(-2.5f, 5f, 0f);
+        Vector3 startPosition = transform.position + transform.rotation * lineStartOffset;
+
+        GameObject projectile = Instantiate(projectilePrefab, startPosition, firePoint.rotation);
         Net net = projectile.GetComponent<Net>();
         if (net != null)
         {

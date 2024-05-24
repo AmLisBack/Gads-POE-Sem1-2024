@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.CompareTag("Net"))
         {
+            Destroy(other.gameObject);
             enemyHealth -= 10;
         }
         if(other.CompareTag("Dart"))
