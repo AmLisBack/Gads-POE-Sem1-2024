@@ -16,13 +16,10 @@ public class Dart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         if(target == null)
-        {
-            Destroy(gameObject);
             return;
-        }
-        */
+        
         
 
         Vector3 dir = target.position + new Vector3(0f,5f,0f) - transform.position;
