@@ -18,7 +18,9 @@ public class Dart : MonoBehaviour
     {
         
         if(target == null)
-            return;
+        {
+            Destroy(gameObject);
+        }
         
         
 

@@ -6,7 +6,7 @@ public class Net : MonoBehaviour
 {
     private float speed = 40f;
     private Transform target;
-
+    
     public void Seek(Transform _target)
     {
         target = _target;
@@ -17,8 +17,9 @@ public class Net : MonoBehaviour
     void Update()
     {
         if (target == null)
-            return;
-
+        {
+            Destroy(gameObject);
+        }
         Vector3 dir = target.position + new Vector3(0f, 5f, 0f) - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
