@@ -51,13 +51,14 @@ public class GameManager : MonoBehaviour
   }
   private void ReplaceBuildingPrefab(Buildings building)
   {
-    
-    GameObject repairedPrefab = building.repairedPrefab; 
+    GameObject repairedPrefab = building.repairedPrefab;
+
     if (repairedPrefab != null)
     {
-      GameObject newBuilding = Instantiate(repairedPrefab, building.transform.position, building.transform.rotation);
-      Destroy(building.gameObject); // Remove the old building
       
+      GameObject newBuilding = Instantiate(repairedPrefab, building.transform.position, repairedPrefab.transform.rotation); 
+
+      Destroy(building.gameObject); 
       for (int i = 0; i < buildings.Length; i++)
       {
         if (buildings[i] == building)
