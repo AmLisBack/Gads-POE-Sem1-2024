@@ -92,9 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7f7c178bb5eef4abce5ab8b8b979c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  firePoint: {x: 0, y: 0, z: 0}
+  projectilePrefab: {fileID: 2900218947945439477, guid: 1b550637dba5296479619355e0760e3d, type: 3}
+  firePoint: {fileID: 0}
   RPM: 10
+  displayFireTimer: 0
 --- !u!95 &-1658125055590108194
 Animator:
   serializedVersion: 5
