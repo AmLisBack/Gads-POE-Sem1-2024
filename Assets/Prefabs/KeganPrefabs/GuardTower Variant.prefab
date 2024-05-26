@@ -92,11 +92,26 @@ PrefabInstance:
       propertyPath: buildingScript
       value: 
       objectReference: {fileID: 5470275758011674553}
+    - target: {fileID: 6050385775614637931, guid: 2750fdf732797794787fe8bd5f1a6fb0, type: 3}
+      propertyPath: upgradeCostText
+      value: 
+      objectReference: {fileID: 1841595869532840793}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2750fdf732797794787fe8bd5f1a6fb0, type: 3}
+--- !u!114 &1841595869532840793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6953542309179644162, guid: 2750fdf732797794787fe8bd5f1a6fb0, type: 3}
+  m_PrefabInstance: {fileID: 8786901431989418587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3005693405186581891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5784599350356795352, guid: 2750fdf732797794787fe8bd5f1a6fb0, type: 3}

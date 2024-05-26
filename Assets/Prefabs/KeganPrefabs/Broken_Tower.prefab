@@ -104,6 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repairedPrefab: {fileID: 317690129703040742, guid: 2750fdf732797794787fe8bd5f1a6fb0, type: 3}
+  uiMenu: {fileID: 6447432898954362516}
+  currentRPM: 0
 --- !u!114 &6196132692544256862
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SniperTower : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class SniperTower : MonoBehaviour
     public float RPM = 3f;
     public int upgradeLevel = 0;
     public float rpmIncreasePerLevel = 0.25f;
+    private int initialUpgradeCost = 20;  
+    private int upgradeCostIncrease = 50;
+    public TMP_Text upgradeCostText;
 
     private Transform target;
     private float fireTimer = 0f;
@@ -23,6 +27,10 @@ public class SniperTower : MonoBehaviour
         {
             Debug.LogError("SniperTower is missing a Building component!");
             return; 
+        }
+        if (upgradeCostText != null)
+        {
+            upgradeCostText.text =  initialUpgradeCost.ToString();
         }
 
         buildingScript.currentRPM = RPM;
@@ -103,14 +111,23 @@ public class SniperTower : MonoBehaviour
     }
     public void Upgrade()
     {
-        if (GameManager.Instance.CanAffordUpgrade(20)) 
+        int currentUpgradeCost = initialUpgradeCost + (upgradeLevel * upgradeCostIncrease);
+        if (upgradeCostText != null)
+        {
+            upgradeCostText.text = "Upgrade Cost: " + currentUpgradeCost.ToString(); 
+        }
+        if (GameManager.Instance.CanAffordUpgrade(currentUpgradeCost))
         {
             upgradeLevel++;
-            GameManager.Instance.gold -= 20; 
+            GameManager.Instance.gold -= currentUpgradeCost;
             GameManager.Instance.UpdateGoldText(); 
 
             float rpmIncrease = RPM * rpmIncreasePerLevel * upgradeLevel;
             buildingScript.currentRPM = RPM + rpmIncrease;
+            if (upgradeCostText != null)
+            {
+                upgradeCostText.text = "Upgrade Cost: " + (currentUpgradeCost + upgradeCostIncrease).ToString();
+            }
             Debug.Log("Sniper Tower upgraded to level " + upgradeLevel + ", RPM: " + buildingScript.currentRPM);
         }
         else
