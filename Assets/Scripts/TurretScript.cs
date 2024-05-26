@@ -25,7 +25,7 @@ public class TurretScript : MonoBehaviour
     {
         
         displayFireTimer = fireTimer;
-        Debug.Log(target);
+        //Debug.Log(target);
         if (target == null)
         {
             FindNewTarget();

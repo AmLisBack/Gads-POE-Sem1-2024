@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdc9d1d1-9f16-448c-a091-b7feb93cfa24" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/Broken_Tower.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/Broken_Tower.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/TurretToSpawn Variant.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/TurretToSpawn Variant.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gads-POE-Sem1-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gads-POE-Sem1-2024/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/GuardTower Variant 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/GuardTower Variant 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/UpgradePanel 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/UpgradePanel 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/GuardTower Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/GuardTower Variant.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SniperTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SniperTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TurretScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TurretScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +111,7 @@
       <workItem from="1716292062271" duration="3594000" />
       <workItem from="1716629316140" duration="5278000" />
       <workItem from="1716639943675" duration="234000" />
-      <workItem from="1716712593970" duration="253000" />
+      <workItem from="1716712588825" duration="8288000" />
     </task>
     <servers />
   </component>

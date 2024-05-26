@@ -25,12 +25,14 @@ public class SniperTower : MonoBehaviour
         buildingScript = GetComponent<Buildings>();
         if (buildingScript == null)
         {
-            Debug.LogError("SniperTower is missing a Building component!");
-            return; 
+            Debug.LogError("SniperTower is missing a Buildings component!");
+            return;
         }
+
+       
         if (upgradeCostText != null)
         {
-            upgradeCostText.text =  initialUpgradeCost.ToString();
+            upgradeCostText.text = "Upgrade Cost: " + initialUpgradeCost.ToString();
         }
 
         buildingScript.currentRPM = RPM;
@@ -46,7 +48,7 @@ public class SniperTower : MonoBehaviour
             Shoot();
             fireTimer = 60f / buildingScript.currentRPM; 
         }
-        Debug.Log(target);
+       // Debug.Log(target);
         if(target == null)
         {
             FindNewTarget();
@@ -114,20 +116,25 @@ public class SniperTower : MonoBehaviour
         int currentUpgradeCost = initialUpgradeCost + (upgradeLevel * upgradeCostIncrease);
         if (upgradeCostText != null)
         {
-            upgradeCostText.text = "Upgrade Cost: " + currentUpgradeCost.ToString(); 
+            upgradeCostText.text =  currentUpgradeCost.ToString();
         }
+
         if (GameManager.Instance.CanAffordUpgrade(currentUpgradeCost))
         {
-            upgradeLevel++;
+            upgradeLevel++; 
             GameManager.Instance.gold -= currentUpgradeCost;
-            GameManager.Instance.UpdateGoldText(); 
+            GameManager.Instance.UpdateGoldText();
 
-            float rpmIncrease = RPM * rpmIncreasePerLevel * upgradeLevel;
+            
+            float rpmIncrease = RPM * rpmIncreasePerLevel * upgradeLevel;  
             buildingScript.currentRPM = RPM + rpmIncrease;
+
+           
             if (upgradeCostText != null)
             {
-                upgradeCostText.text = "Upgrade Cost: " + (currentUpgradeCost + upgradeCostIncrease).ToString();
+                upgradeCostText.text = (currentUpgradeCost + upgradeCostIncrease).ToString();
             }
+
             Debug.Log("Sniper Tower upgraded to level " + upgradeLevel + ", RPM: " + buildingScript.currentRPM);
         }
         else
@@ -135,6 +142,7 @@ public class SniperTower : MonoBehaviour
             Debug.Log("Not enough gold to upgrade!");
         }
     }
+
 }
 
 

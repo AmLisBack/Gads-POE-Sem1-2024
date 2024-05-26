@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
   }
   public void OnRepairButtonClick(Buildings buildingToRepair)
   {
+    Debug.Log("repair clcked");
     if (gold >= repairCost && !buildingToRepair.IsRepaired())
     {
       gold -= repairCost;
@@ -77,9 +78,16 @@ public class GameManager : MonoBehaviour
   {
     return gold >= cost;
   }
-  public void OnUpgradeSniperTowerButtonClick()
+  public void OnUpgradeSniperTowerButtonClick(SniperTower towerToUpgrade)
   {
-    sniperTower.Upgrade();
-    Debug.Log("sniper upgraded");
+    Debug.Log("upgrade clcked");
+    if (towerToUpgrade != null) 
+    {
+      towerToUpgrade.Upgrade();
+    }
+    else
+    {
+      Debug.LogError("No SniperTower assigned to the button!");
+    }
   }
 }
