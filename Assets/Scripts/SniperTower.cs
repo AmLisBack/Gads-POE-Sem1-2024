@@ -113,6 +113,7 @@ public class SniperTower : MonoBehaviour
     }
     public void Upgrade()
     {
+        Debug.Log("upgraded bvuilding");
         int currentUpgradeCost = initialUpgradeCost + (upgradeLevel * upgradeCostIncrease);
         if (upgradeCostText != null)
         {
