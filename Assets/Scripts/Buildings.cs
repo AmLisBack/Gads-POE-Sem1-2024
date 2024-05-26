@@ -6,6 +6,8 @@ public class Buildings : MonoBehaviour
 {
     private bool isRepaired = false; 
     public GameObject repairedPrefab;
+    public GameObject uiMenu;
+    public float currentRPM;
     
 
     public bool IsRepaired()

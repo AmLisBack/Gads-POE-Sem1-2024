@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdc9d1d1-9f16-448c-a091-b7feb93cfa24" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/Broken_Tower.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/Broken_Tower.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/TurretToSpawn Variant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeganPrefabs/TurretToSpawn Variant.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gads-POE-Sem1-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gads-POE-Sem1-2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +54,8 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\kegan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\kegan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\kegan\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kegan\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
       "C:\\Users\\kegan\\AppData\\Local\\Symbols\\src"
     ]
   }
@@ -101,7 +107,9 @@
       <option name="presentableId" value="Default" />
       <updated>1716292060404</updated>
       <workItem from="1716292062271" duration="3594000" />
-      <workItem from="1716629316140" duration="5004000" />
+      <workItem from="1716629316140" duration="5278000" />
+      <workItem from="1716639943675" duration="234000" />
+      <workItem from="1716712593970" duration="253000" />
     </task>
     <servers />
   </component>
@@ -109,6 +117,11 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

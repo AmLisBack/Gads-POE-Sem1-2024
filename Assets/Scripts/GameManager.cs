@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
   
   public Buildings[] buildings; 
   public int repairCost = 20;
+  
+  public SniperTower sniperTower; 
 
+  public static GameManager Instance { get; private set; }
   void Update()
   {
     UpdateGoldText();
@@ -27,7 +30,8 @@ public class GameManager : MonoBehaviour
       Debug.Log(gold);
     }
   }
-  private void UpdateGoldText()
+
+  public void UpdateGoldText()
   {
     if (goldAmountText != null)
     {
@@ -69,5 +73,13 @@ public class GameManager : MonoBehaviour
       }
     }
   }
-  
+  public bool CanAffordUpgrade(int cost)
+  {
+    return gold >= cost;
+  }
+  public void OnUpgradeSniperTowerButtonClick()
+  {
+    sniperTower.Upgrade();
+    Debug.Log("sniper upgraded");
+  }
 }

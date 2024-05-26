@@ -7,18 +7,37 @@ public class SniperTower : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float RPM = 3f;
+    public int upgradeLevel = 0;
+    public float rpmIncreasePerLevel = 0.25f;
 
     private Transform target;
     private float fireTimer = 0f;
+    
+    public Buildings buildingScript;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        buildingScript = GetComponent<Buildings>();
+        if (buildingScript == null)
+        {
+            Debug.LogError("SniperTower is missing a Building component!");
+            return; 
+        }
+
+        buildingScript.currentRPM = RPM;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        fireTimer -= Time.deltaTime;
+        if (fireTimer <= 0f)
+        {
+            Shoot();
+            fireTimer = 60f / buildingScript.currentRPM; 
+        }
         Debug.Log(target);
         if(target == null)
         {
@@ -82,5 +101,23 @@ public class SniperTower : MonoBehaviour
         */
 
     }
+    public void Upgrade()
+    {
+        if (GameManager.Instance.CanAffordUpgrade(20)) 
+        {
+            upgradeLevel++;
+            GameManager.Instance.gold -= 20; 
+            GameManager.Instance.UpdateGoldText(); 
 
+            float rpmIncrease = RPM * rpmIncreasePerLevel * upgradeLevel;
+            buildingScript.currentRPM = RPM + rpmIncrease;
+            Debug.Log("Sniper Tower upgraded to level " + upgradeLevel + ", RPM: " + buildingScript.currentRPM);
+        }
+        else
+        {
+            Debug.Log("Not enough gold to upgrade!");
+        }
+    }
 }
+
+
