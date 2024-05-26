@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
   public static GameManager Instance { get; private set; }
   void Update()
   {
+    Instance = this;
     UpdateGoldText();
     timer += Time.deltaTime;
 
