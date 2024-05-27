@@ -13,13 +13,13 @@ public class TurretScript : MonoBehaviour
     private Transform target;
     private float fireTimer = 10f;
     public float displayFireTimer;
-    private Animator animator;
+    
 
     // Update is called once per frame
     private void Start()
     {
         
-        animator = GetComponent<Animator>();
+       
     }
     void Update()
     {
@@ -36,11 +36,11 @@ public class TurretScript : MonoBehaviour
             fireTimer -= Time.deltaTime;
             if (fireTimer <= 0f)
             {
-                animator.SetTrigger("PlayAnimation");
+               
                 Shoot();
                 fireTimer = RPM;
             }
-            animator.SetTrigger("Idle");
+            
 
         }
     }
