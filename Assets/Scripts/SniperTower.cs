@@ -9,7 +9,7 @@ public class SniperTower : MonoBehaviour
     public Transform firePoint;
     public float RPM = 3f;
     public int upgradeLevel = 0;
-    public float rpmIncreasePerLevel = 0.25f;
+    public float rpmIncreasePerLevel = 1;
     private int initialUpgradeCost = 20;  
     private int upgradeCostIncrease = 50;
     public TMP_Text upgradeCostText;

@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
   public Buildings[] buildings; 
   public int repairCost = 20;
   
-  public SniperTower sniperTower; 
+  public SniperTower sniperTower;
+  public TurretScript turretScript;
 
   public static GameManager Instance { get; private set; }
   void Update()
@@ -89,6 +90,18 @@ public class GameManager : MonoBehaviour
     else
     {
       Debug.LogError("No SniperTower assigned to the button!");
+    }
+  }
+  public void OnUpgradeTurretUpgradeClick(TurretScript turretToUpgrade)
+  {
+    Debug.Log("upgrade clcked");
+    if (turretToUpgrade != null) 
+    {
+      turretToUpgrade.Upgrade();
+    }
+    else
+    {
+      Debug.LogError("No turret assigned to the button!");
     }
   }
 }

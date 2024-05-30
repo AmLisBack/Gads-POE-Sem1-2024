@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TurretScript : MonoBehaviour
 {
@@ -13,12 +14,32 @@ public class TurretScript : MonoBehaviour
     private Transform target;
     private float fireTimer = 10f;
     public float displayFireTimer;
+    public int upgradeLevel = 0;
+    public float rpmIncreasePerLevel = 0.25f;
+    private int initialUpgradeCost = 20;  
+    private int upgradeCostIncrease = 50;
+    public TMP_Text upgradeCostText;
+    
+    public Buildings buildingScript;
     
 
     // Update is called once per frame
     private void Start()
     {
-        
+        buildingScript = GetComponent<Buildings>();
+        if (buildingScript == null)
+        {
+            Debug.LogError("Turret is missing a Buildings component!");
+            return;
+        }
+
+       
+        if (upgradeCostText != null)
+        {
+            upgradeCostText.text = "Upgrade Cost: " + initialUpgradeCost.ToString();
+        }
+
+        buildingScript.currentRPM = RPM;
        
     }
     void Update()
@@ -95,5 +116,37 @@ public class TurretScript : MonoBehaviour
 
 
 
+    }
+    public void Upgrade()
+    {
+        Debug.Log("upgraded building");
+        int currentUpgradeCost = initialUpgradeCost + (upgradeLevel * upgradeCostIncrease);
+        if (upgradeCostText != null)
+        {
+            upgradeCostText.text =  currentUpgradeCost.ToString();
+        }
+
+        if (GameManager.Instance.CanAffordUpgrade(currentUpgradeCost))
+        {
+            upgradeLevel++; 
+            GameManager.Instance.gold -= currentUpgradeCost;
+            GameManager.Instance.UpdateGoldText();
+
+            
+            float rpmIncrease = RPM * rpmIncreasePerLevel * upgradeLevel;  
+            buildingScript.currentRPM = RPM + rpmIncrease;
+
+           
+            if (upgradeCostText != null)
+            {
+                upgradeCostText.text = (currentUpgradeCost + upgradeCostIncrease).ToString();
+            }
+
+            Debug.Log("Sniper Tower upgraded to level " + upgradeLevel + ", RPM: " + buildingScript.currentRPM);
+        }
+        else
+        {
+            Debug.Log("Not enough gold to upgrade!");
+        }
     }
 }
