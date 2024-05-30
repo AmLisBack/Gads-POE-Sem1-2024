@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public double enemyHealth = 10;
     public float damage = 1;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +22,16 @@ public class Enemy : MonoBehaviour
         HealthCheck();
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.position, 0.05f);
     }
-    private void HealthCheck()
+    public void HealthCheck()
     {
 
         if (enemyHealth <= 0)
         {
+           
             Destroy(gameObject);
         }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)

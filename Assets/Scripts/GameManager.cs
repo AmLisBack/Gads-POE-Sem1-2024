@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
   public TurretScript turretScript;
 
   public static GameManager Instance { get; private set; }
+  
   void Update()
   {
     Instance = this;
@@ -104,4 +105,6 @@ public class GameManager : MonoBehaviour
       Debug.LogError("No turret assigned to the button!");
     }
   }
+
+  
 }

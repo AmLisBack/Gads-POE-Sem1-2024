@@ -36,7 +36,7 @@ public class TurretScript : MonoBehaviour
        
         if (upgradeCostText != null)
         {
-            upgradeCostText.text = "Upgrade Cost: " + initialUpgradeCost.ToString();
+            upgradeCostText.text = initialUpgradeCost.ToString();
         }
 
         buildingScript.currentRPM = RPM;
