@@ -15,9 +15,10 @@ public class SniperTower : MonoBehaviour
     public TMP_Text upgradeCostText;
 
     private Transform target;
-    private float fireTimer = 0f;
+    public float fireTimer = 0f;
     
     public Buildings buildingScript;
+    
     
     // Start is called before the first frame update
     void Start()

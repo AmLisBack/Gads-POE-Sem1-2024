@@ -6,8 +6,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-  public TMP_Text goldAmountText; 
-  public int gold = 10;
+    public TMP_Text goldAmountText;
+    public int gold = 100; 
 
   private float timer = 0f;
   public float delayAmount = 10f;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
   public SniperTower sniperTower;
   public TurretScript turretScript;
 
-  public static GameManager Instance { get; private set; }
+  public static GameManager Instance { get; set; }
   void Update()
   {
     Instance = this;
@@ -104,4 +104,10 @@ public class GameManager : MonoBehaviour
       Debug.LogError("No turret assigned to the button!");
     }
   }
+    public void IncreaseOnDeath(int goldToIncrease)
+    {
+        this.gold += goldToIncrease;
+    }
+    
+
 }

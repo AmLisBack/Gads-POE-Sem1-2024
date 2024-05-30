@@ -12,19 +12,21 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         transform.LookAt(target);
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         HealthCheck();
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.position, 0.05f);
     }
     private void HealthCheck()
     {
-
         if (enemyHealth <= 0)
         {
+            GameManager.Instance.IncreaseOnDeath(1);
             Destroy(gameObject);
         }
     }
